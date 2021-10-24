@@ -11,6 +11,7 @@ namespace ManchesterCodePaintApp
         private byte _y;
         private LineSeries _lineSeries;
         private readonly PlotModel _plotModel;
+        private bool _isSingleLegendGenerated;
         public ManchesterCodePlotter()
         {
             _x = 0;
@@ -31,7 +32,7 @@ namespace ManchesterCodePaintApp
         public void DrawOneByte(string byteCode)
         {
             //Каждый байт должен предваряться последовательностью jjkjk 
-            _lineSeries = new LineSeries{Color = OxyColors.Red,MarkerType = MarkerType.Circle,SeriesGroupName = "jjKjk"};
+            _lineSeries = new LineSeries{Color = OxyColors.Red,MarkerType = MarkerType.Circle,Title = "jjkjk",RenderInLegend = !_isSingleLegendGenerated};
             _lineSeries.Points.Add(new DataPoint(_x,_y));
             DrawJ();
             DrawJ();
@@ -59,12 +60,13 @@ namespace ManchesterCodePaintApp
             _plotModel.Series.Add(_lineSeries);
 
             //Каждый байт должен оканчиваться jjj
-            _lineSeries = new LineSeries{Color = OxyColors.Blue,MarkerType = MarkerType.Circle,SeriesGroupName = "jjj"};
+            _lineSeries = new LineSeries{Color = OxyColors.Blue,MarkerType = MarkerType.Circle,Title = "jjj",RenderInLegend = !_isSingleLegendGenerated};
             _lineSeries.Points.Add(new DataPoint(_x,_y));
             DrawJ();
             DrawJ();
             DrawJ();
             _plotModel.Series.Add(_lineSeries);
+            _isSingleLegendGenerated = true;
         }
 
         /// <summary>

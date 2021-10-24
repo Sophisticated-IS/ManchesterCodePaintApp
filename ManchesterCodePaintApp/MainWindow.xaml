@@ -9,7 +9,7 @@
         Title="Manchester Code Plotter Sophisticated-IS"
         Height="600"
         Width="800"
-        Background="Yellow">
+        Background="Gray">
     <Grid Margin="5"
           Background="WhiteSmoke">
         <Grid.RowDefinitions>
@@ -17,10 +17,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="5">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Number:"
-                       FontSize="16"
+                       VerticalAlignment="Center"
+                       Padding="0,0,5,0"
+                       FontSize="20"
                        FontWeight="Bold" />
                 <TextBox x:Name="HexTextCode"
                          MinWidth="150"
@@ -47,6 +49,8 @@
                            VerticalAlignment="Center" />
             </StackPanel>
             <Button HorizontalAlignment="Right"
+                    FontSize="20"
+                    MinWidth="120"
                     Content="Plot 📈"
                     Foreground="DarkRed"
                     BorderThickness="3"

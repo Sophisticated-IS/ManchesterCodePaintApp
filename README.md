@@ -1,4 +1,5 @@
 # ManchesterCodePaintApp
+Target Platform - Winodows 7  and higher with .NETFramework v4.6.1
 Apllication whcih plots a chart according to Manchester Code of the number in hex format
 
 # Manchester Code Agreements

@@ -1,7 +1,7 @@
 # ManchesterCodePaintApp
-Target Platform - Windows 7  and higher with installed .NETFramework v4.6.1
 Apllication whcih plots a chart according to Manchester Code of the number in hex format
-
+# Target Platform
+Windows 7  and higher with installed .NETFramework v4.6.1
 # Manchester Code Agreements
 Prefix for each byte - jjkjk
 

@@ -11,3 +11,6 @@ _| j | k | 1 | 0
 --- |--- |--- |--- |--- |
 Series А	| —	| + |	— |	+
 Series Б |	—	| —	| +	| +
+
+# Interface
+![image](https://user-images.githubusercontent.com/57034720/138598145-c11a4712-83fa-4b79-a883-678e6325530e.png)

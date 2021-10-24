@@ -32,6 +32,7 @@ namespace ManchesterCodePaintApp
         {
             //Каждый байт должен предваряться последовательностью jjkjk 
             _lineSeries = new LineSeries{Color = OxyColors.Red,MarkerType = MarkerType.Circle,SeriesGroupName = "jjKjk"};
+            _lineSeries.Points.Add(new DataPoint(_x,_y));
             DrawJ();
             DrawJ();
             DrawK();
@@ -40,6 +41,7 @@ namespace ManchesterCodePaintApp
             _plotModel.Series.Add(_lineSeries);
 
             _lineSeries = new LineSeries{Color = OxyColors.Green,MarkerType = MarkerType.Circle};
+            _lineSeries.Points.Add(new DataPoint(_x,_y));
             var binaryCodes = byteCode.ToArray();
             foreach (var binaryCode in binaryCodes)
             {
@@ -58,6 +60,7 @@ namespace ManchesterCodePaintApp
 
             //Каждый байт должен оканчиваться jjj
             _lineSeries = new LineSeries{Color = OxyColors.Blue,MarkerType = MarkerType.Circle,SeriesGroupName = "jjj"};
+            _lineSeries.Points.Add(new DataPoint(_x,_y));
             DrawJ();
             DrawJ();
             DrawJ();
@@ -69,9 +72,9 @@ namespace ManchesterCodePaintApp
         /// </summary>
         private void DrawNoSignal()
         {
+            _x++;
             var dataPoint = new DataPoint(_x,_y);
             _lineSeries.Points.Add(dataPoint);
-            _x++;
         }
 
         /// <summary>
@@ -79,10 +82,10 @@ namespace ManchesterCodePaintApp
         /// </summary>
         private void DrawSignal()
         {
-            var dataPoint = new DataPoint(_x,_y);
-            _lineSeries.Points.Add(dataPoint);
             _x++;
             _y = InverseYCoordinate(_y);
+            var dataPoint = new DataPoint(_x,_y);
+            _lineSeries.Points.Add(dataPoint);
         }
 
         private byte InverseYCoordinate(byte y)

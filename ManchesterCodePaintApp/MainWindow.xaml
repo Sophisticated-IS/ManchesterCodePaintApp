@@ -19,10 +19,30 @@
 
         <Grid Grid.Row="0">
             <StackPanel Orientation="Horizontal">
-                <Label Content="Number:" />
-                <TextBox x:Name="TextCode" MinWidth="150" VerticalContentAlignment="Center" FontSize="16"  />
+                <Label Content="Number:"
+                       FontSize="16"
+                       FontWeight="Bold" />
+                <TextBox x:Name="HexTextCode"
+                         MinWidth="150"
+                         VerticalContentAlignment="Center"
+                         FontSize="16" />
                 <TextBlock Padding="5,0,0,0"
                            Text="X₁₆"
+                           FontSize="16"
+                           VerticalAlignment="Center" />
+                <TextBlock Text="➜"
+                           VerticalAlignment="Center"
+                           Margin="5,0,5,0"
+                           FontSize="20"
+                           Foreground="DarkViolet" />
+                <TextBox x:Name="BinTextCode"
+                         IsReadOnly="True"
+                         MinWidth="150"
+                         VerticalContentAlignment="Center"
+                         FontSize="16" />
+                <TextBlock Padding="5,0,0,0"
+                           Text="X₂"
+                           IsEnabled="False"
                            FontSize="16"
                            VerticalAlignment="Center" />
             </StackPanel>
@@ -34,7 +54,7 @@
                     Padding="5"
                     FontWeight="Bold"
                     Background="Transparent"
-                    Click="PlotManchesterCode"/>
+                    Click="PlotManchesterCode" />
         </Grid>
         <Grid Grid.Row="1">
             <DockPanel LastChildFill="True">

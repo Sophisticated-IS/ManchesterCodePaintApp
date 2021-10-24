@@ -18,21 +18,23 @@ namespace ManchesterCodePaintApp
 
         private void PlotManchesterCode(object sender, RoutedEventArgs e)
         {
-            if (TextCode.Text.Length > 1)
+            if (HexTextCode.Text.Length > 1)
             {
-                TextCode.Text = TextCode.Text.TrimStart('0');
+                HexTextCode.Text = HexTextCode.Text.TrimStart('0');
             }
 
-            var text = TextCode.Text;
+            var text = HexTextCode.Text;
             var isDecoded = GetBinaryCode(text, out var binaryCode);
             if (!isDecoded)
             {
+                BinTextCode.Text = string.Empty;
                 MessageBox.Show("Number does not correspond to HEX format!!!");
                 return;
             }
 
             try
             {
+                BinTextCode.Text = binaryCode;
                 var plotter = new ManchesterCodePlotter();
                 var bytes = binaryCode.Split(' ');
                 var plotViewModel = plotter.CreateModel(bytes);

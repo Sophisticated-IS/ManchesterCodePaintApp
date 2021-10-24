@@ -4,10 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManchesterCodePaintApp"
+        xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-        
+        Title="Manchester Code Plotter Sophisticated-IS"
+        Height="600"
+        Width="800"
+        Background="Yellow">
+    <Grid Margin="5"
+          Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Number:" />
+                <TextBox x:Name="TextCode" MinWidth="150" VerticalContentAlignment="Center" FontSize="16"  />
+                <TextBlock Padding="5,0,0,0"
+                           Text="X₁₆"
+                           FontSize="16"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+            <Button HorizontalAlignment="Right"
+                    Content="Plot 📈"
+                    Foreground="DarkRed"
+                    BorderThickness="3"
+                    BorderBrush="DodgerBlue"
+                    Padding="5"
+                    FontWeight="Bold"
+                    Background="Transparent"
+                    Click="PlotManchesterCode"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DockPanel LastChildFill="True">
+                <TextBlock DockPanel.Dock="Top"
+                           Text="Manchester Code Chart"
+                           FontSize="25"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center" />
+                <oxy:PlotView x:Name="PlotView" />
+            </DockPanel>
+        </Grid>
     </Grid>
 </Window>
